@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ProjectEntityMapper">
+
+    <!--    根据名称project_name搜索项目-->
+<!--    要求查询得到的项目和传入的项目com.example.dao.entity.ProjectEntity名称相同-->
+    <select id="queryProjectList" parameterType="com.example.dao.entity.ProjectEntity"
+            resultType="com.example.dao.entity.ProjectEntity">
+        SELECT id,
+               user_id,
+               project_name,
+               project_content,
+               created_by,
+               creation_date,
+               last_updated_by,
+               last_update_date
+        FROM project_info
+        WHERE project_name = #{projectName, jdbcType=VARCHAR}
+    </select>
+
+
+    <insert id="insert" parameterType="com.example.dao.entity.ProjectEntity">
+        INSERT INTO project_info (id, user_id, project_name, project_content, created_by, creation_date,
+                                  last_updated_by, last_update_date)
+        VALUES (#{id, jdbcType=VARCHAR},
+                #{userId, jdbcType=VARCHAR},
+                #{projectName, jdbcType=VARCHAR},
+                #{projectContent, jdbcType=VARCHAR},
+                #{createdBy, jdbcType=VARCHAR},
+                #{creationDate, jdbcType=TIMESTAMP},
+                #{lastUpdatedBy, jdbcType=VARCHAR},
+                #{lastUpdateDate, jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.dao.entity.ProjectEntity">
+        UPDATE project_info
+        SET user_id = #{userId,jdbcType=VARCHAR},
+            project_name = #{projectName,jdbcType=VARCHAR},
+            project_content = #{projectContent,jdbcType=VARCHAR},
+            created_by = #{createdBy,jdbcType=VARCHAR},
+            creation_date = #{creationDate,jdbcType=TIMESTAMP},
+            last_updated_by = #{lastUpdatedBy,jdbcType=VARCHAR},
+            last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
+        WHERE id = #{id,jdbcType=VARCHAR}
+    </update>
+
+
+    <delete id="deleteProjectById" parameterType="com.example.dao.entity.ProjectEntity">
+        DELETE
+        FROM project_info
+        WHERE id = #{id,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>

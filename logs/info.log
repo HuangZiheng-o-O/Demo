@@ -1,0 +1,19 @@
+2023-06-02 13:42:35[ INFO ]>>queryUserList用户列表查询测试成功
+2023-06-02 13:42:53[ INFO ]>>insert用户插入测试成功
+2023-06-02 13:44:48[ INFO ]>>delete用户删除测试成功
+2023-06-05 18:54:46[ INFO ]>>delete用户删除测试成功
+2023-06-05 19:06:50[ INFO ]>>insert用户插入测试成功
+2023-06-05 19:07:53[ INFO ]>>insert用户插入测试成功
+2023-06-05 19:08:19[ INFO ]>>qselectUserInfo用户登录测试成功
+2023-06-07 00:36:08[ INFO ]>>insert用户插入测试成功
+2023-06-07 00:56:42[ INFO ]>>insert用户插入测试成功
+2023-06-07 01:18:42[ INFO ]>>insert用户插入测试成功
+2023-06-07 01:19:32[ INFO ]>>insert用户插入测试成功
+2023-06-07 17:37:59[ DEBUG ]==>  Preparing: SELECT id,username,`password`,start_time as "starttime", stop_time as "stoptime" FROM user_info WHERE status = "1"
+2023-06-07 17:37:59[ DEBUG ]==> Parameters: 
+2023-06-07 17:37:59[ DEBUG ]<==      Total: 0
+2023-06-07 17:39:04[ DEBUG ]==>  Preparing: SELECT id,username,`password`,start_time as "starttime", stop_time as "stoptime" FROM user_info WHERE status = "1"
+2023-06-07 17:39:04[ DEBUG ]==> Parameters: 
+2023-06-07 17:39:04[ DEBUG ]<==      Total: 0
+2023-06-07 23:39:48[ INFO ]>>insert用户插入测试成功
+2023-06-07 23:40:39[ INFO ]>>insert用户插入测试成功
