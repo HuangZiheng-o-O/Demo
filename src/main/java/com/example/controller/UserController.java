@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/admin")
+@CrossOrigin(origins = "*", allowedHeaders = "Content-Type")//解决跨域问题
 public class UserController {
     @Autowired
     private UserService userService;
@@ -108,7 +110,7 @@ public class UserController {
      * @param userEntity 用户实体对象，包含要修改的用户信息。
      * @return 返回修改结果的HttpResponseEntity对象。
      */
-    @RequestMapping(value = "/ModifyUser", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "/modifyUserInfo", method = RequestMethod.POST, headers = "Accept=application/json")
     public HttpResponseEntity modifyUserInfo(@RequestBody UserEntity userEntity){
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
         try{
@@ -136,7 +138,7 @@ public class UserController {
     public HttpResponseEntity deleteUser(@RequestBody UserEntity userEntity){
         HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
         try{
-            int result = userService.deleteUserByName(userEntity);
+            int result = userService.deleteUserById(userEntity);
             if(result != 0) {
                 httpResponseEntity.setCode("666");
                 httpResponseEntity.setData(result);

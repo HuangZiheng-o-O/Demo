@@ -91,7 +91,7 @@ class Test1ApplicationTests {
     }
 
     @Test
-    public void deleteUserByName() throws Exception {
+    public void deleteUserById() throws Exception {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -101,7 +101,7 @@ class Test1ApplicationTests {
         //调用userMapper的方法
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername("aaaaa");
-        int i = userEntityMapper.deleteUserByName(userEntity);
+        int i = userEntityMapper.deleteUserById(userEntity);
         if(i==0){
             // 记录error级别的信息
         }else{

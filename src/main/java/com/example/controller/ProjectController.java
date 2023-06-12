@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
+@CrossOrigin(origins = "*", allowedHeaders = "Content-Type")//解决跨域问题
 public class ProjectController {
     @Autowired
     private ProjectService projectService;

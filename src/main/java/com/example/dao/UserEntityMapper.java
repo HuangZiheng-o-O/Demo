@@ -15,7 +15,7 @@ public interface UserEntityMapper {
     //创建用户基本信息
     int insert(UserEntity userEntity);
     //根据id删除用户信息
-    int deleteUserByName(UserEntity userEntity);
+    int deleteUserById(UserEntity userEntity);
     //编辑用户信息
     int updateByPrimaryKeySelective(UserEntity userEntity);
     //查询用户

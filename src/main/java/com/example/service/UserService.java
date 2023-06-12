@@ -39,7 +39,7 @@ public class UserService {
     }
 
     //删除用户信息
-    public int deleteUserByName(UserEntity userEntity){
-        return userEntityMapper.deleteUserByName(userEntity);
+    public int deleteUserById(UserEntity userEntity){
+        return userEntityMapper.deleteUserById(userEntity);
     }
 }
