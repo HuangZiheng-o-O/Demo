@@ -20,4 +20,6 @@ public interface UserEntityMapper {
     int updateByPrimaryKeySelective(UserEntity userEntity);
     //查询用户
     List<UserEntity> selectUserInfo(UserEntity userEntity);
+
+    List<UserEntity> searchUserByName(String string);
 }

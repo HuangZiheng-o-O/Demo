@@ -6,7 +6,7 @@ import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.LinkedHashMap;
 import java.util.List;
 
 
@@ -151,6 +151,46 @@ public class UserController {
             }
         }
         catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return httpResponseEntity;
+    }
+
+
+
+    @RequestMapping(value = "/searchUserByName", method = RequestMethod.POST, headers = "Accept=application/json")
+    public HttpResponseEntity searchUserByName(@RequestBody Object object ){
+        System.out.println(object);
+        //object是class java.util.LinkedHashMap
+        //object是{pageNum=1, pageSize=10, userName=aaa}
+        //但是我希望取到object中的userName，怎么办？
+        java.util.LinkedHashMap linkedHashMap = (java.util.LinkedHashMap) object;
+        String userName = linkedHashMap.get("userName").toString();
+
+        System.out.println("1"+object);
+        System.out.println("1");
+        HttpResponseEntity httpResponseEntity = new HttpResponseEntity();
+        try {
+            System.out.println("2");
+            System.out.println(object);
+            List<UserEntity> hasUser = userService.searchUserByName(userName);
+            System.out.println("3");
+            if (CollectionUtils.isEmpty(hasUser)) {
+//                private String code;//状态码
+//                private Object data;//返回的数据
+//                private String message;//状态消息
+                httpResponseEntity.setCode("0");
+                httpResponseEntity.setData(hasUser.get(0));
+                httpResponseEntity.setMessage("无法加载用户");
+                System.out.println("4");
+            } else {
+                httpResponseEntity.setCode("666");
+                httpResponseEntity.setData(hasUser);
+                httpResponseEntity.setMessage("用户加载成功");
+                System.out.println("5");
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }

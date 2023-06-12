@@ -42,4 +42,8 @@ public class UserService {
     public int deleteUserById(UserEntity userEntity){
         return userEntityMapper.deleteUserById(userEntity);
     }
+
+    public List<UserEntity> searchUserByName(String string) {
+        return userEntityMapper.searchUserByName(string);
+    }
 }

@@ -83,4 +83,11 @@
     AND status = "1"
   </select>
 
+  <select id="searchUserByName" parameterType="java.lang.String" resultType="com.example.dao.entity.UserEntity">
+--     传进来的参数实际上是一个字符串：username
+    SELECT *
+    FROM user_info
+    WHERE username = #{username,jdbcType=VARCHAR}
+    AND status = "1"
+  </select>
 </mapper>
