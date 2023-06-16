@@ -1,8 +1,11 @@
 package com.example;
 
+import com.example.beans.HttpResponseEntity;
 import com.example.common.util.UUIDUtil;
+import com.example.controller.UserController;
 import com.example.dao.UserEntityMapper;
 import com.example.dao.entity.UserEntity;
+import jakarta.annotation.Resource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,19 +15,34 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.Test;
 
 
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.CollectionUtils;
 
 import java.io.InputStream;
 import java.util.List;
 import org.apache.log4j.Logger;
-//@SpringBootTest
+//@RunWith(SpringRunner.class)
+@SpringBootTest
 class Test1ApplicationTests {
-//    @Test
+//    @Resource
+//    private UserController userController;
+////    @Test
 //    void contextLoads() {
 
     //    }
     Logger log = Logger.getLogger(Test1ApplicationTests.class);
-    @Test
+//    @Test
+//    public void testSelect(){
+//        UserEntity userEntity = new UserEntity();
+//        userEntity.setUsername("admin");
+//        HttpResponseEntity httpResponseEntity = userController.queryUserList(userEntity);
+//
+//        log.info("--- 结果 ---");
+//        log.info(httpResponseEntity.getData().toString());
+//    }
+//    @Test
     public void queryUserList() throws Exception {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
