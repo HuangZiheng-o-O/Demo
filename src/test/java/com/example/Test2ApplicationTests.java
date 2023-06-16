@@ -41,27 +41,6 @@ public class Test2ApplicationTests {
         }
     }
 
-//    @Test
-//    public void selectProjectInfo() throws Exception {
-//        String resource = "mybatis-config.xml";
-//        InputStream inputStream = Resources.getResourceAsStream(resource);
-//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-//        SqlSession sqlSession = sqlSessionFactory.openSession();
-//        //创建ProjectMapper对象，mybatis自动生成mapper代理对象
-//        ProjectEntityMapper projectEntityMapper = sqlSession.getMapper(ProjectEntityMapper.class);
-//        //调用projectMapper的方法
-//        ProjectEntity projectEntity = new ProjectEntity();
-//        projectEntity.setProjectName("project1");
-//        List<ProjectEntity> list = projectEntityMapper.queryProjectList(projectEntity);
-//        if(CollectionUtils.isEmpty(list)){
-//            // 记录error级别的信息
-//        }else{
-//            System.out.println(list);
-//            // 记录info级别的信息
-//            log.info(">>qselectUserInfo用户登录测试成功");
-//        }
-//    }
-
     @Test
     public void insert() throws Exception {
         String resource = "mybatis-config.xml";
