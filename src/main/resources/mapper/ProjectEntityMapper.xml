@@ -22,7 +22,9 @@
                last_update_date
         FROM project_info
         WHERE project_name = #{projectName, jdbcType=VARCHAR}
+           OR #{projectName, jdbcType=VARCHAR} = ''
     </select>
+
 
     <insert id="insert" parameterType="com.example.dao.entity.ProjectEntity">
         INSERT INTO project_info (id, user_id, project_name, project_content, created_by, creation_date,
