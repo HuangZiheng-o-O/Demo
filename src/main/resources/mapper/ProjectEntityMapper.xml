@@ -4,6 +4,12 @@
 
     <!--    根据名称project_name搜索项目-->
 <!--    要求查询得到的项目和传入的项目com.example.dao.entity.ProjectEntity名称相同-->
+<!--    <select id="selectProjectInfo" parameterType="java.lang.String" resultType="com.example.dao.entity.ProjectEntity">-->
+<!--        SELECT id,project_name as "projectName",project_content as "projectContent",creation_date as"creationDate",-->
+<!--               created_by as "createdBy",creation_date as "creationDate", last_updated_by as "lastUpdatedBy", user_id as "userId"-->
+<!--        FROM project_info-->
+<!--        WHERE project_name=#{projectName,jdbcType=VARCHAR}-->
+<!--    </select>-->
     <select id="queryProjectList" parameterType="com.example.dao.entity.ProjectEntity"
             resultType="com.example.dao.entity.ProjectEntity">
         SELECT id,
@@ -17,7 +23,6 @@
         FROM project_info
         WHERE project_name = #{projectName, jdbcType=VARCHAR}
     </select>
-
 
     <insert id="insert" parameterType="com.example.dao.entity.ProjectEntity">
         INSERT INTO project_info (id, user_id, project_name, project_content, created_by, creation_date,

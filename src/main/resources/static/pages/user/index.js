@@ -42,6 +42,7 @@ const fetchUserList = () => {
     }
   })
 }
+
 const deleteUser = (id) => {
   let params = {
     id: id
@@ -57,6 +58,7 @@ const deleteUser = (id) => {
     }
   })
 }
+
 const handleTableChange = (page) => {
   if (page === 1) {
     if (pageNum === 1) return
